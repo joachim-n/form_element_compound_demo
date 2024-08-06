@@ -1,0 +1,7 @@
+form_element_compound_demo.compound_element_demo:
+  path: /compound-element-demo
+  defaults:
+    _title: 'Compound element demo form'
+    _form: \Drupal\form_element_compound_demo\Form\CompoundElementDemoForm
+  requirements:
+    _access: 'TRUE'
