@@ -50,6 +50,18 @@ class CompoundElementDemoForm extends FormBase {
   public function submitForm(array &$form, FormStateInterface $form_state) {
     // The problem is here: why do we get an array with 'container' set in it,
     // when the valueCallback() should get rid of it?
+    // We get an array of the form:
+    // [
+    //   // The two keys we lifted:
+    //   'alpha' => ...,
+    //   'beta' => ...,
+    //   // The 'container' key is still here!
+    //   'container' => [
+    //     'alpha' => ...,
+    //     'beta' => ...,
+    //   ],
+    // ]
+
     dsm($form_state->getValue('demo'));
   }
 

@@ -66,9 +66,18 @@ class CompoundElement extends FormElementBase {
       return '';
     }
     else {
-      // This is the problem: we return the contents of the 'container' value,
-      // but then the 'container' value persists anyway.
+      // This receives as expected an array of the form:
+      // [
+      //   'container' => [
+      //     'alpha' => ...,
+      //     'beta' => ...,
+      //   ],
+      // ]
+
+      // Return just the inner array to remove the unnecessary nesting:
       return $input['container'];
+      // The problem is that in the form class, the form value for this element
+      // will still have a 'container' sub-array in addition to the lifted keys.
     }
   }
 
